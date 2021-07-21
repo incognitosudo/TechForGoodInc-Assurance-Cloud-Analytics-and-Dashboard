@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import Layout from '../components/Layout';
 import Head from 'next/head';
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+
+import Layout from '../components/Layout';
 
 function Index() {
     const [pageIsMounted, setPageIsMounted] = useState(false);

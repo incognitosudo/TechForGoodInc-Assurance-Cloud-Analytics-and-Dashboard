@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Button from '@material-ui/core/Button';
+import AppBar from './AppBar';
 
 const basic = ({ children }) => (
     <div>
@@ -9,6 +10,7 @@ const basic = ({ children }) => (
         <header>
             header
         </header>
+        <AppBar/>
         
         {children}
 
