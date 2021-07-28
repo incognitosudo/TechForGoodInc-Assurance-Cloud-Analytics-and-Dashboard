@@ -8,7 +8,7 @@ const basic = ({ children }) => (
             <title>Assurance</title>
         </Head>
         <header>
-            header
+            {/* header */}
         </header>
         <AppBar/>
         

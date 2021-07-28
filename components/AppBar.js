@@ -1,93 +1,124 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Slide from '@material-ui/core/Slide';
 
+/* Start of my notes*/
 
-const styles = theme => ({
-    root: {
-        flexSlide: 1
-    },
-    flex: {
-        flex: 1
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20
-    },
-    toolbarMargin: theme.mixins.toolbar
-});
+import clsx from 'clsx';
 
-const ScrolledAppBar = withStyles(styles)(
-  class extends Component {
-    state = {
-      scrolling: false,
-      scrollTop: 0
-    };
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
-    onScroll = e => {
-      this.setState(state => ({
-        scrollTop: e.target.documentElement.scrollTop,
-        scrolling:
-          e.target.documentElement.scrollTop > state.scrollTop
-      }));
-    };
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 
-    shouldComponentUpdate(props, state) {
-      return this.state.scrolling !== state.scrolling;
+/*end of my notes */
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+/* Start of my notes - Added from MUI, Design for drawer*/
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
+  /*end of my notes */
+}));
+
+export default function ButtonAppBar() {
+  const classes = useStyles();
+
+  /* Start of my notes */
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
     }
 
-    componentDidMount() {
-      window.addEventListener('scroll', this.onScroll);
-    }
+    setState({ ...state, [anchor]: open });
+  };
 
-    componentWillUnmount() {
-      window.removeEventListener('scroll', this.onScroll);
-    }
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+/* end of input */
 
-    render() {
-      const { classes } = this.props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Assurance
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
 
-      return (
-        <Slide direction="down" in={!this.state.scrolling}>
-          <AppBar>
-            <Toolbar>
-              <IconButton
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="Menu"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                variant="h6"
-                color="inherit"
-                className={classes.flex}
-              >
-                My Title
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </Slide>
-      );
-    }
-  }
-);
-
-const AppBarWithButtons = withStyles(styles) (({ classes, title, buttonText }) => (
-        <div classname={classes.root}>
-            <ScrolledAppBar />
-            <div className={classes.toolbarMargin} />
-            {/* <ul>
-    {new Array(500).fill(null).map((v, i) => <li key={i}>{i}</li>)}
-  </ul> */}
-        </div>
-    )
-);
-
-export default AppBarWithButtons;
+      {['left'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          
+          <SwipeableDrawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+            onOpen={toggleDrawer(anchor, true)}
+          >
+            {list(anchor)}
+          </SwipeableDrawer>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
