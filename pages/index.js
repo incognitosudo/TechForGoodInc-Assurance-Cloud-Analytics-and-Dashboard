@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Layout from '../components/Layout';
-import Map from '../components/Map';
+import Map from '../components/map/Map';
 
 const Index = () => (
     <Layout>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-import fetcher from "../utilities/fetcher";
+import fetcher from "../../utilities/fetcher";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 function Map() {
     const [pageIsMounted, setPageIsMounted] = useState(false);
-    const { data, error } = useSWR("", fetcher);
+    const { data, error } = useSWR("/api/shootings", fetcher);
 
     mapboxgl.accessToken = 'pk.eyJ1IjoicGVuZ3Vpb29vIiwiYSI6ImNrcmNmeGc1eTUycTMydm10dGFqZmlyaTkifQ.RYQDCD2tHifk0r-ky8DEBw';
 
