@@ -1,4 +1,13 @@
+
 export default function handler(req, res) {
+// maybe delete this file after
+    // STEP 1 - Read CSV -- find a package to read CSV
+
+    // STEP 2 - Created a function that converted state, city to coordinates -- already have this
+    
+    
+    // STEP 3- create Json file to send to frontend
+
     res.status(200).json({
         type: "FeatureCollection",
         features: [
@@ -6,10 +15,10 @@ export default function handler(req, res) {
                 type: "Feature",
                 geometry: { type: "Point", coordinates: [-77.0317, 38.9146] },
                 properties: {
-                title: "Black Cat",
-                cluster: false,
-                venue: "blackcat",
-                event_count: 10,
+                    title: "Black Cat",
+                    cluster: false,
+                    venue: "blackcat",
+                    event_count: 10,
                 },
             },
             {

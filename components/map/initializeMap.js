@@ -29,7 +29,8 @@ export function initializeMap(mapboxgl, map) {
         }
         new mapboxgl.Popup()
         .setLngLat(coordinates)
-        .setHTML("magnitude: " + mag + "<br>Was there a tsunami?: " + tsunami)
+        // .setHTML("magnitude: " + mag + "<br>Was there a tsunami?: " + tsunami)
+        .setHTML("shootings: " + mag + "<br>Killed: " + tsunami)
         .addTo(map);
     });
     map.addControl(
