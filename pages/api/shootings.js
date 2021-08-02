@@ -1,4 +1,3 @@
-
 export default function handler(req, res) {
 // maybe delete this file after
     // STEP 1 - Read CSV -- find a package to read CSV

@@ -4,6 +4,7 @@ import useSWR from "swr";
 import fetcher from "../../utilities/fetcher";
 import { initializeMap } from "./initializeMap";
 import { addDataLayer } from "./addDataLayer";
+import { AddressToCoordinates } from "../../utilities/AddressToCoordinates";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 function Map() {
@@ -14,6 +15,8 @@ function Map() {
     if (error) {
         console.error(error);
     }
+
+    // var coordinates = AddressToCoordinates('springfield');
 
     // mapboxgl.accessToken = 'pk.eyJ1IjoicGVuZ3Vpb29vIiwiYSI6ImNrcmNmeGc1eTUycTMydm10dGFqZmlyaTkifQ.RYQDCD2tHifk0r-ky8DEBw';
     mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jb2duaXRvYnVyaXRvIiwiYSI6ImNrcmdyajlibDVuajEyeHF1Nnh3emp3Y2EifQ.YQJ1WIZtPqiJhV6635h0Vg';
