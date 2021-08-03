@@ -2,9 +2,7 @@
 <h3 align="center">Tech for Good Inc.</h3>
 
 <details open>
-  <summary>How to automate the '''python 
-    update_data.py
-    ''' 
-    file</summary>
+  <summary>Automation</summary>
+Automating the '''update_data.py''' walkthrough
 
 </details>
