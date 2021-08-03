@@ -2,7 +2,8 @@
 <h2 align = "center"> Cloud Analytics and Dashboard </h2>
 <h3 align = "center"> Tech For Good Inc. </h3>
 
-GitHub also supports something called code fencing, which allows for multiple lines without indentation:
+<details>
+<summary> how to automate `update_data.py`</summary>
 
 ```
 if (isAwesome){
