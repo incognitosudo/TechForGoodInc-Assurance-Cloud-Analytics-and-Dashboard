@@ -3,6 +3,6 @@
 
 <details open>
   <summary>Automation</summary>
-
+```code```
 
 </details>
