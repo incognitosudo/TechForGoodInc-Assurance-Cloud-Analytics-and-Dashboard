@@ -1,10 +1,9 @@
 <h1 align = "center"> Cloud Analytics and Dashboard </h1>
 
-## 
 <details>
 <summary>Automation</summary>
-```
-    if True:
-        run()
-```
+
+    ```python
+        # code
+    ```
 </details>
