@@ -2,8 +2,9 @@
 <h2 align = "center"> Cloud Analytics and Dashboard </h2>
 <h3 align = "center"> Tech For Good Inc. </h3>
 
+
 <details>
-<summary> how to automate `update_data.py`</summary>
+<summary> how to automate ` update_data.py `</summary>
 
 ```
 if (isAwesome){
