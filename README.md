@@ -3,7 +3,5 @@
 <details>
 <summary>Automation</summary>
 
-    ```
-        # code
-    ```
+    code
 </details>
