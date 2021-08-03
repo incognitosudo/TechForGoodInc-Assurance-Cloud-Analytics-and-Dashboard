@@ -5,8 +5,7 @@
 
 <details>
 <summary>Automation</summary>
-how to automate `update_data.py`
-  ks: `var example = true`.  If you'v
+There are many different ways to style code with GitHub's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:
   
 ```
 if (isAwesome){
