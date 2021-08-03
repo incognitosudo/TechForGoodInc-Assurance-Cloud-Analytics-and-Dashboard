@@ -3,7 +3,7 @@
 <details>
 <summary>Automation</summary>
 
-    ```python
+    ```
         # code
     ```
 </details>
