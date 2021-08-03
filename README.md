@@ -4,6 +4,7 @@
 <details>
 <summary>Automation</summary>
 ```
-    code
+    if True:
+        run()
 ```
 </details>
