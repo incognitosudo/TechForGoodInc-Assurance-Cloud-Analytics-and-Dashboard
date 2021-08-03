@@ -6,6 +6,7 @@
 <details>
 <summary>Automation</summary>
 how to automate `update_data.py`
+  ks: `var example = true`.  If you'v
   
 ```
 if (isAwesome){
