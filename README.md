@@ -3,6 +3,6 @@
 
 <details open>
   <summary>Automation</summary>
-Automating the 'update_data.py' walkthrough
+Automating the `update_data.py` walkthrough
 
 </details>
