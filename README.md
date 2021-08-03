@@ -4,7 +4,7 @@
 
 
 <details>
-<summary> how to automate ` update_data.py `</summary>
+<summary> how to automate `update_data.py`</summary>
 
 ```
 if (isAwesome){
