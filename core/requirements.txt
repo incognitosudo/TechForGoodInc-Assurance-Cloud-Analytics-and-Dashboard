@@ -1,8 +1,0 @@
-async-exit-stack==1.0.1
-async-generator==1.10
-pyodbc==4.0.31
-SQLalchemy==1.4.22
-pydantic==1.8.2
-fastapi==0.68.0
-typing==3.7.4.3
-uvicorn==0.14.0
