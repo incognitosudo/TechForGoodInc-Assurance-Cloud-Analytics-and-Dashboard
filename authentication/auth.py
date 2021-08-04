@@ -1,8 +1,4 @@
-from connect import crsr, cnxn
-from fastapi import FastAPI
+import sys
+sys.path.append("./core")
 
-app = FastAPI()
-
-@app.get("/")
-def home():
-    return {"message":"Hello"}
+import api

@@ -19,8 +19,8 @@ class Incident(BaseModel):
     state: str
     city: str
     address: str
-    killed: int
-    injuried: int
+    killed: str
+    injuried: str
 
 @app.get("/")
 def testing_endpoint():
