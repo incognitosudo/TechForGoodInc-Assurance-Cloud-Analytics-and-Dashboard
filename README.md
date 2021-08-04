@@ -3,7 +3,7 @@
 
 <details>
     
-<summary> requirements </summary>
+<summary>Requirements </summary>
     
 * Please make sure to update `requirements.txt` when after finalizing a module using:
     
@@ -16,7 +16,7 @@
     
 <details>
     
-<summary> "pyodbc.InterfaceError" resolution</summary>
+<summary>"pyodbc.InterfaceError" resolution</summary>
     
 If your `connect.py` module has 
     
@@ -102,14 +102,14 @@ After this, a new task should be listed on the Task Scheduler.
 
 <details>
     
-<summary> "data collector.ipynb" file purpose</summary>
+<summary>"data collector.ipynb" file purpose</summary>
     
 It's a Jupyter Notebook primary data collection module demo. The actual data collection module is in `db management` package with the name of `collector_module.py`.
 </details>
     
 <details>
     
-<summary> "pyodbc.InterfaceError" resolution</summary>
+<summary>"pyodbc.InterfaceError" resolution</summary>
     
 If your `connect.py` module has 
     
