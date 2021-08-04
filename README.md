@@ -122,3 +122,33 @@ then you have to install the driver matches your machine.
     
 * For MacOS - ODBC 17 (used in `connect.py`): https://docs.microsoft.com/pt-br/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
 </details>
+
+    
+<details>
+    
+<summary>"Error loading ASGI app." resolution</summary>
+    
+If your `core/main.py` module has 
+    
+    $ Error loading ASGI app. Could not import module "main". 
+
+then you have to change directory on the terminal using `cd` command
+    
+example:
+    
+    $ cd ~/Desktop/TFG/assurance/mainbranch/core
+</details>
+    
+    
+<details>
+    
+<summary>"OpenSSL Module Not Found" on MacOS resolution</summary>
+    
+If your `core/api.py` module has `module not found` for `OpenSSL`:
+
+then you have to change directory on the terminal using `cd` command
+    
+example:
+    
+    $ brew install openssl
+</details>
