@@ -11,7 +11,7 @@ password = '473c9b60-ee40-11eb-9a03-0242ac130003'
 
 driver = '{ODBC Driver 17 for SQL Server}'
 
-odbc_str = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;UID='+username+';DATABASE='+ database + ';PWD='+ password
+odbc_str = 'DRIVER='+driver+';SERVER='+server+';UID='+username+';DATABASE='+ database + ';PWD='+ password
 connect_str = 'mssql+pyodbc:///?odbc_connect=' + urllib.parse.quote_plus(odbc_str)
 
 # print (connect_str)
