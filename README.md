@@ -102,7 +102,7 @@ After this, a new task should be listed on the Task Scheduler.
 
 <details>
     
-<summary>"data collector.ipynb" file purpose</summary>
+<summary>"past data collector.ipynb" file purpose</summary>
     
 It's a Jupyter Notebook primary data collection module demo. The actual data collection module is in `db management` package with the name of `collector_module.py`.
 </details>
