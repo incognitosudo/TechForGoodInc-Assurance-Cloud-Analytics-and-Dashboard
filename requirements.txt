@@ -9,3 +9,7 @@ starlette==0.14.2
 typing-extensions==3.10.0.0
 uvicorn==0.14.0
 zipp==3.5.0
+async-exit-stack==1.0.1
+async-generator==1.10
+SQLalchemy==1.4.22
+typing==3.7.4.3
