@@ -1,8 +1,10 @@
 import csv
 import numpy as np
 from datetime import date
+import os
 
 def read_file(filename, L):
+    f = os.path.join('/db management', filename)
     fp = open(filename, "r")
     reader = csv.reader(fp)
     fp.readline()

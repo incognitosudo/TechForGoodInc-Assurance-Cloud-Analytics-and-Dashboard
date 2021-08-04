@@ -48,7 +48,7 @@ def testing_endpoint():
 # Auth Endpoints
 @app.post("/sign-up")
 def sign_up(user: User):
-    pass
+    return user
 
 
 @app.get("/get-all-incidents")
