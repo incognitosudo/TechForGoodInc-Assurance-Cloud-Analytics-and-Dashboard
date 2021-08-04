@@ -2,15 +2,14 @@
 <h2 align = "center"> Cloud Analytics and Dashboard Documentation</h2>
 
 <details>
-    
 <summary>Requirements </summary>
     
 Please make sure to update `requirements.txt` when after finalizing a module using:
-    
-    $ pip freeze > requirements.txt
 
-How to install all the requirements:
+    $ pip freeze > requirements.txt
     
+How to install all the requirements:
+
     $ pip install -r requirements.txt
 </details>
     
