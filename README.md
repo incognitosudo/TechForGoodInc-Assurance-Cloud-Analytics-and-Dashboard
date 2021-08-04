@@ -1,4 +1,5 @@
-<h1 align = "center"> Cloud Analytics and Dashboard </h1>
+<h1 align = "center"> Assurance</h1>
+<h2 align = "center"> Cloud Analytics and Dashboard Documentation</h2>
 
 <details>
 <summary>Automation Walkthrough</summary>
