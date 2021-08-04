@@ -81,8 +81,10 @@ It's a Jupyter Notebook primary data collection module demo. The actual data col
 <summary> "pyodbc.InterfaceError" resolution</summary>
     
 If your `connect.py` module has 
+    
     pyodbc.Error: ('IM002', "[IM002] [Microsoft][ODBC Driver Manager]Data source name not found and no default driver specified (0) (SQLDriverConnect)") 
 or 
+    
     pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
 then you have to install the driver matches your machine.
 * For Windows: https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#previous-releases
