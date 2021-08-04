@@ -74,3 +74,18 @@ After this, a new task should be listed on the Task Scheduler.
     
 It's a Jupyter Notebook primary data collection module demo. The actual data collection module is in `db management` package with the name of `collector_module.py`.
 </details>
+    
+<details>
+    
+<summary> "pyodbc.InterfaceError" resolution</summary>
+    
+If your `connect.py` module has 
+    pyodbc.Error: ('IM002', "[IM002] [Microsoft][ODBC Driver Manager]Data source name not found and no default driver specified (0) (SQLDriverConnect)") 
+or 
+    pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
+then you have to install the driver matches your machine.
+For Windows: https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#previous-releases
+For MacOS:
+13: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
+17: https://docs.microsoft.com/pt-br/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
+</details>
