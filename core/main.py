@@ -9,8 +9,6 @@ from database import engine, SessionLocal
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
-
 
 # Dependency
 def get_db():
@@ -31,4 +29,5 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=400, detail="username already registered")
     return crud.create_user(db=db, user=user)
+
 
