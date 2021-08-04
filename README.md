@@ -2,6 +2,37 @@
 <h2 align = "center"> Cloud Analytics and Dashboard Documentation</h2>
 
 <details>
+    
+<summary> requirements </summary>
+    
+* Please make sure to update `requirements.txt` when after finalizing a module using:
+    
+    $ pip freeze > requirements.txt
+
+* How to install all the requirements:
+    
+    $ pip install -r requirements.txt
+</details>
+    
+<details>
+    
+<summary> "pyodbc.InterfaceError" resolution</summary>
+    
+If your `connect.py` module has 
+    
+    $ pyodbc.Error: ('IM002', "[IM002] [Microsoft][ODBC Driver Manager]Data source name not found and no default driver specified (0) (SQLDriverConnect)") 
+or 
+    
+    $ pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
+then you have to install the driver matches your machine.
+* For Windows: https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#previous-releases
+* For MacOS - ODBC 13: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
+    
+* For MacOS - ODBC 17 (used in `connect.py`): https://docs.microsoft.com/pt-br/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
+</details>
+
+
+<details>
 <summary>Automation Walkthrough</summary>
 
 <details>
@@ -82,10 +113,10 @@ It's a Jupyter Notebook primary data collection module demo. The actual data col
     
 If your `connect.py` module has 
     
-    pyodbc.Error: ('IM002', "[IM002] [Microsoft][ODBC Driver Manager]Data source name not found and no default driver specified (0) (SQLDriverConnect)") 
+    $ pyodbc.Error: ('IM002', "[IM002] [Microsoft][ODBC Driver Manager]Data source name not found and no default driver specified (0) (SQLDriverConnect)") 
 or 
     
-    pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
+    $ pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
 then you have to install the driver matches your machine.
 * For Windows: https://docs.microsoft.com/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?view=sql-server-ver15#previous-releases
 * For MacOS - ODBC 13: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15
