@@ -5,11 +5,11 @@
     
 <summary>Requirements </summary>
     
-* Please make sure to update `requirements.txt` when after finalizing a module using:
+Please make sure to update `requirements.txt` when after finalizing a module using:
     
     $ pip freeze > requirements.txt
 
-* How to install all the requirements:
+How to install all the requirements:
     
     $ pip install -r requirements.txt
 </details>
