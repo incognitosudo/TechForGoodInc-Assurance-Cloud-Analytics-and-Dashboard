@@ -2,7 +2,6 @@ import Head from 'next/head';
 
 import Layout from '../components/Layout';
 import Map from '../components/map/Map';
-import GetCoordinates from '../components/GetCoordinates'
 
 const Index = () => (
     <Layout>
@@ -11,7 +10,6 @@ const Index = () => (
         </Head>
         <h1>School Shootings Data</h1>
         <main>
-            <GetCoordinates/>
             <Map/>
         </main>
     </Layout>

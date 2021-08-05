@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-import fetcher from "../../utilities/fetcher";
 import { initializeMap } from "./initializeMap";
 import { addDataLayer } from "./addDataLayer";
 import { AddressToCoordinates } from "../../utilities/AddressToCoordinates";
@@ -17,15 +16,15 @@ function Map() {
 
     // This is temporary, retrieving fixed set of data
     const test = RetrieveFromDatabase();
-    // const coordinates = {};
+    const coordinates = {};
 
     for (var key in test) {
         if (test.hasOwnProperty(key)) {
-            // coordinates[key] = AddressToCoordinates(data[key].Address);
-            // console.log(AddressToCoordinates(data[key].Address));
             let address = test[key].Address + " " + test[key]['City Or County'] + " " + test[key].State;
             const { data, isLoading, isError } = AddressToCoordinates(address);
-            console.log(data.data.features[0].geometry.coordinates)
+            if (!isLoading) {
+                console.log(data.features[0].geometry.coordinates)
+            }
         }
     }
 
