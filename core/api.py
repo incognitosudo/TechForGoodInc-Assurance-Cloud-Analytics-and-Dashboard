@@ -53,11 +53,36 @@ def sign_up(user: User):
 
 @app.get("/get-all-incidents")
 def get_all_incidents():
-    pass
+    incidents = []
+    crsr.execute("SELECT * FROM INCIDENTS")
+    each_incident = {}
+    for row in crsr.fetchall():
+        each_incident = {
+            "incident_id": row[0],
+            "date": row[1],
+            "state": row[2],
+            "city": row[3],
+            "address": row[4],
+            "killed": row[5],
+            "injuried": row[6],
+        }
+        incidents.append(each_incident)
+    return {"Data": incidents}
 
 @app.get("/get-incident/{incident_id}")
 def get_incident_by_id(incident_id: str):
-    pass
+    crsr.execute(f"SELECT * FROM INCIDENTS where IncidentID={incident_id}") 
+    row = crsr.fetchall()[0];
+    incident = {
+        "incident_id": row[0],
+        "date": row[1],
+        "state": row[2],
+        "city": row[3],
+        "address": row[4],
+        "killed": row[5],
+        "injuried": row[6],
+    }
+    return {"Data": incident}
 
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
