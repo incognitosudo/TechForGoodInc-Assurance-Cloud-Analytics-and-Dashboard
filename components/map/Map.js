@@ -16,14 +16,33 @@ function Map() {
 
     // This is temporary, retrieving fixed set of data
     const test = RetrieveFromDatabase();
-    const coordinates = {};
+    const shootingsData = {};
+    var geojson = {
+        'type': 'geojson',
+        'data': {
+            'type': 'FeatureCollection',
+            'features': []
+        }
+    };
 
     for (var key in test) {
         if (test.hasOwnProperty(key)) {
             let address = test[key].Address + " " + test[key]['City Or County'] + " " + test[key].State;
             const { data, isLoading, isError } = AddressToCoordinates(address);
             if (!isLoading) {
-                console.log(data.features[0].geometry.coordinates)
+                geojson.data.features.push({
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [data.features[0].geometry.coordinates[0], data.features[0].geometry.coordinates[1]]
+                    },
+                    'properties': {
+                        'title': key,
+                        'marker-color': '#3bb2d0',
+                        'marker-size': 'large',
+                        'marker-symbol': 'rocket'
+                    }
+                });
             }
         }
     }
@@ -43,8 +62,32 @@ function Map() {
             // pitch: 45,
         });
 
+        map.on('load', function () {
+            map.loadImage(
+                'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('custom-marker', image);
+
+                    map.addSource('points', geojson)
+
+                    map.addLayer({
+                        'id': 'points',
+                        'type': 'symbol',
+                        'source': 'points',
+                        'layout': {
+                            'icon-image': 'custom-marker',
+                            'text-field': ['get', 'title'],
+                            'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                            'text-offset': [0, 1.25],
+                            'text-anchor': 'top'
+                        }
+                    });
+                }
+            )
+        });
+
         // initializeMap(mapboxgl, map);
-        setMap(map);
     }, []);
 
     return (<div id="map" style={{ height: 500, width: 1000 }} />);
