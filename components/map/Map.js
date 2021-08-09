@@ -87,29 +87,80 @@ function Map() {
       // pitch: 45,
     });
 
+
     map.on('load', function () {
       map.loadImage(
         'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
         function (error, image) {
-          if (error) throw error;
+          
+          if (!error) {
+            map.addImage('custom-marker', image);
+  
+            // map.addSource('points', geojson)
+            map.addSource('points', geojson);
+            console.log(geojson)
+            map.addLayer({
+              id: 'points',
+              type: 'symbol',
+              source: 'points',
+              layout: {
+                'icon-image': 'custom-marker',
+                'text-field': ['get', 'title'],
+                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                'text-offset': [0, 1.25],
+                'text-anchor': 'top',
+              },
+            });
 
-          map.addImage('custom-marker', image);
+            // geojson.data.features.forEach(feature => {
 
-          // map.addSource('points', geojson)
-          map.addSource('points', geojson);
+            //   const long = feature.geometry.coordinates[0]
+            //   const lat = feature.geometry.coordinates[1]
 
-          map.addLayer({
-            id: 'points',
-            type: 'symbol',
-            source: 'points',
-            layout: {
-              'icon-image': 'custom-marker',
-              'text-field': ['get', 'title'],
-              'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-              'text-offset': [0, 1.25],
-              'text-anchor': 'top',
-            },
-          });
+            //   new mapboxgl.Popup({ closeOnClick: false })
+            //   .setLngLat([long, lat])
+            //   .setHTML('<h1>Hello World!</h1>')
+            //   .addTo(map);
+
+            // })
+
+            const popup = new mapboxgl.Popup({
+              closeButton: false,
+              cloneOnClick: false
+            });
+
+            map.on('mouseenter', 'points', (e) => {
+
+              console.log(e)
+
+              // Change the cursor style as a UI indicator.
+              map.getCanvas().style.cursor = 'pointer';
+               
+              // Copy coordinates array.
+              const coordinates = e.features[0].geometry.coordinates.slice();
+              // const description = e.features[0].properties.description;
+              const description = 'Hello World!'
+               
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+               
+              // Populate the popup and set its coordinates
+              // based on the feature found.
+              popup.setLngLat(coordinates).setHTML(description).addTo(map);
+              });
+               
+              // remove pop up on mouse leave
+              map.on('mouseleave', 'points', () => {
+              map.getCanvas().style.cursor = '';
+              popup.remove();
+              });
+            
+          }
+
         }
       );
     });
@@ -117,7 +168,7 @@ function Map() {
     // initializeMap(mapboxgl, map);
   }, [geojson]);
 
-  return <div id="map" style={{ height: 500, width: 1000 }} />;
+  return <div id="map" style={{ height: 1000, width: 1200 }} />;
 }
 
 export default Map;
